@@ -63,6 +63,14 @@ local tips = {
 	"Work together with your friends to defeat the boss!",
 	"Touch the green glowing parts to save your checkpoint.",
 	"Watch out for kill bricks in the obby sections!",
+	"Look for Granny's diary pages scattered around the house...",
+	"Hide in closets and under beds when the cat is near!",
+	"Your flashlight slows down cats! But watch the battery.",
+	"Collect all cat treats in a room to reveal secret passages!",
+	"Close doors behind you to slow down the evil cats.",
+	"Find keys to unlock doors deeper in the house.",
+	"Press F to toggle your flashlight on and off.",
+	"What happened to Granny? Find diary pages to learn the truth...",
 }
 
 -- Rotate tips every 10 seconds

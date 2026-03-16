@@ -270,8 +270,9 @@ function onBossDefeated()
 		end
 	end
 
-	-- Notify all clients of victory
+	-- Notify all clients of victory and trigger celebration effects
 	Remotes[Constants.EVENT_BOSS_DEFEATED]:FireAllClients()
+	Remotes[Constants.EVENT_VICTORY_CELEBRATION]:FireAllClients()
 
 	-- Set game state to victory
 	local setStateEvent = ServerStorage:FindFirstChild("SetGameState")

@@ -105,7 +105,31 @@ end
 
 local function checkForPlayers(catData: CatData): (Player?, number)
 	local catPos = catData.rootPart.Position
-	return Utils.findNearestPlayer(catPos, Constants.CAT_DETECTION_RANGE)
+
+	-- Custom search that skips hidden players
+	local nearestPlayer: Player? = nil
+	local nearestDistance = Constants.CAT_DETECTION_RANGE
+
+	for _, player in Players:GetPlayers() do
+		local character = player.Character
+		if character then
+			-- Skip hidden players (from GameplayEnhancements hiding system)
+			if character:GetAttribute("IsHidden") then
+				continue
+			end
+
+			local charPos = Utils.getCharacterPosition(character)
+			if charPos and Utils.isAlive(character) then
+				local distance = Utils.getDistance(catPos, charPos)
+				if distance < nearestDistance then
+					nearestDistance = distance
+					nearestPlayer = player
+				end
+			end
+		end
+	end
+
+	return nearestPlayer, nearestDistance
 end
 
 local function isInTerritory(catData: CatData, position: Vector3): boolean
@@ -142,8 +166,9 @@ local function attackPlayer(catData: CatData, player: Player)
 	catData.lastAttackTime = now
 	humanoid:TakeDamage(Constants.CAT_ATTACK_DAMAGE)
 
-	-- Notify client for camera shake
+	-- Notify client for camera shake and blood vignette
 	Remotes[Constants.EVENT_CAMERA_SHAKE]:FireClient(player, 0.3, 5)
+	Remotes[Constants.EVENT_PLAYER_DAMAGED]:FireClient(player)
 
 	print("[CatAI] Cat attacked", player.Name, "- Health:", humanoid.Health)
 end
@@ -155,6 +180,9 @@ local function updateCat(catData: CatData)
 	end
 
 	local catPos = catData.rootPart.Position
+
+	-- If cat is slowed by a door or flashlight, don't override the speed reduction
+	local isExternallySlowed = catData.model:GetAttribute("DoorSlowed") or catData.model:GetAttribute("FlashlightSlowed")
 
 	if catData.state == GameState.CatStates.PATROL then
 		-- Check for nearby players
@@ -193,6 +221,17 @@ local function updateCat(catData: CatData)
 			return
 		end
 
+		-- If target hid, lose interest
+		if target.Character:GetAttribute("IsHidden") then
+			catData.state = GameState.CatStates.PATROL
+			catData.targetPlayer = nil
+			if not isExternallySlowed then
+				catData.humanoid.WalkSpeed = Constants.CAT_WALK_SPEED
+			end
+			print("[CatAI] Target hid! Cat lost interest, returning to patrol")
+			return
+		end
+
 		local targetPos = Utils.getCharacterPosition(target.Character)
 		if not targetPos or not Utils.isAlive(target.Character) then
 			catData.state = GameState.CatStates.PATROL
@@ -206,7 +245,9 @@ local function updateCat(catData: CatData)
 		if distance > Constants.CAT_LOSE_INTEREST_RANGE or not isInTerritory(catData, targetPos) then
 			catData.state = GameState.CatStates.PATROL
 			catData.targetPlayer = nil
-			catData.humanoid.WalkSpeed = Constants.CAT_WALK_SPEED
+			if not isExternallySlowed then
+				catData.humanoid.WalkSpeed = Constants.CAT_WALK_SPEED
+			end
 			print("[CatAI] Cat lost interest, returning to patrol")
 			return
 		end
@@ -218,7 +259,9 @@ local function updateCat(catData: CatData)
 		end
 
 		-- Chase!
-		catData.humanoid.WalkSpeed = Constants.CAT_CHASE_SPEED
+		if not isExternallySlowed then
+			catData.humanoid.WalkSpeed = Constants.CAT_CHASE_SPEED
+		end
 		catData.humanoid:MoveTo(targetPos)
 
 	elseif catData.state == GameState.CatStates.ATTACK then

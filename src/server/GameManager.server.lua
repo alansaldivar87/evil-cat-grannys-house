@@ -28,6 +28,17 @@ local remoteEventNames = {
 	Constants.EVENT_CAT_WARNING,
 	Constants.EVENT_CAMERA_SHAKE,
 	Constants.EVENT_GAME_STATE_CHANGED,
+	Constants.EVENT_PLAYER_DAMAGED,
+	Constants.EVENT_VICTORY_CELEBRATION,
+	Constants.EVENT_STORY_NOTE_SHOW,
+	Constants.EVENT_HIDE_STATE_CHANGED,
+	Constants.EVENT_FLASHLIGHT_TOGGLE,
+	Constants.EVENT_FLASHLIGHT_BATTERY,
+	Constants.EVENT_TREAT_COLLECTED,
+	Constants.EVENT_ROOM_TREATS_COMPLETE,
+	Constants.EVENT_DOOR_TOGGLE,
+	Constants.EVENT_KEY_COLLECTED,
+	Constants.EVENT_PLAYER_HIDDEN,
 }
 
 for _, eventName in remoteEventNames do

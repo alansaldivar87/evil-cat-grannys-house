@@ -1,6 +1,7 @@
 --[[
 	InputHandler - Custom input bindings for cross-platform support
-	Handles: weapon activation (works on PC mouse + PlayStation controller automatically)
+	Handles: weapon activation, flashlight toggle
+	Works on PC (keyboard/mouse) and PlayStation controller automatically
 ]]
 
 local Players = game:GetService("Players")
@@ -46,6 +47,40 @@ if LocalPlayer.Character then
 	onCharacterAdded(LocalPlayer.Character)
 end
 LocalPlayer.CharacterAdded:Connect(onCharacterAdded)
+
+-- ==================
+-- FLASHLIGHT INPUT
+-- ==================
+
+-- F key (PC) or left bumper (gamepad) toggles flashlight
+UserInputService.InputBegan:Connect(function(input, gameProcessed)
+	if gameProcessed then
+		return
+	end
+
+	local isFlashlightKey = input.KeyCode == Enum.KeyCode.F
+	local isFlashlightButton = input.KeyCode == Enum.KeyCode.ButtonL1
+
+	if isFlashlightKey or isFlashlightButton then
+		-- Check if player has flashlight equipped or in backpack
+		local character = LocalPlayer.Character
+		if not character then
+			return
+		end
+
+		local hasFlashlight = character:FindFirstChild("Flashlight")
+		if not hasFlashlight then
+			local backpack = LocalPlayer:FindFirstChild("Backpack")
+			if backpack then
+				hasFlashlight = backpack:FindFirstChild("Flashlight")
+			end
+		end
+
+		if hasFlashlight then
+			Remotes[Constants.EVENT_FLASHLIGHT_TOGGLE]:FireServer()
+		end
+	end
+end)
 
 -- ==================
 -- PLATFORM DETECTION
