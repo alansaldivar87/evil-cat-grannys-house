@@ -234,8 +234,21 @@ Remotes[Constants.EVENT_FLASHLIGHT_TOGGLE].OnServerEvent:Connect(function(player
 		return
 	end
 
-	-- Find flashlight tool
+	-- Find flashlight tool (check both character and backpack)
 	local flashlight = character:FindFirstChild("Flashlight")
+	if not flashlight then
+		local backpack = player:FindFirstChild("Backpack")
+		if backpack then
+			flashlight = backpack:FindFirstChild("Flashlight")
+			if flashlight then
+				-- Auto-equip: move from backpack to character
+				local humanoid = character:FindFirstChildOfClass("Humanoid")
+				if humanoid then
+					humanoid:EquipTool(flashlight)
+				end
+			end
+		end
+	end
 	if not flashlight then
 		return
 	end
