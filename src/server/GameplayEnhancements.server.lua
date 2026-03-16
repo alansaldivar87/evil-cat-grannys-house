@@ -641,11 +641,11 @@ local function setupDoor(doorPart: BasePart)
 			state.isOpen = false
 			prompt.ActionText = "Open Door"
 
+			doorPart.CanCollide = true
 			local closeTween = TweenService:Create(doorPart, TweenInfo.new(Constants.DOOR_OPEN_SPEED, Enum.EasingStyle.Sine), {
-				CFrame = state.originalCFrame,
+				Transparency = 0,
 			})
 			closeTween:Play()
-			doorPart.CanCollide = true
 
 			-- Closing a door slows nearby cats temporarily
 			task.spawn(function()
@@ -687,27 +687,12 @@ local function setupDoor(doorPart: BasePart)
 			state.isOpen = true
 			prompt.ActionText = "Close Door"
 
-			-- Determine open direction based on door's orientation
-			local openAngle = doorPart:GetAttribute("OpenAngle") or 90
-			local pivotOffset = doorPart:GetAttribute("PivotOffset") or Vector3.new(doorPart.Size.X / 2, 0, 0)
-
-			-- Simple swing: rotate door around its hinge edge
-			local hingeCFrame = state.originalCFrame * CFrame.new(pivotOffset)
-			local openCFrame = hingeCFrame * CFrame.Angles(0, math.rad(openAngle), 0) * CFrame.new(-pivotOffset)
-
+			-- Make door passable and semi-transparent (reliable open)
+			doorPart.CanCollide = false
 			local openTween = TweenService:Create(doorPart, TweenInfo.new(Constants.DOOR_OPEN_SPEED, Enum.EasingStyle.Sine), {
-				CFrame = openCFrame,
+				Transparency = 0.7,
 			})
 			openTween:Play()
-
-			-- Briefly disable collision during opening
-			task.spawn(function()
-				doorPart.CanCollide = false
-				task.wait(Constants.DOOR_OPEN_SPEED + 0.1)
-				if state.isOpen then
-					doorPart.CanCollide = false -- Keep passable when open
-				end
-			end)
 
 			Remotes[Constants.EVENT_DOOR_TOGGLE]:FireAllClients("opened", doorPart)
 			print("[Door] Door opened by", player.Name)
