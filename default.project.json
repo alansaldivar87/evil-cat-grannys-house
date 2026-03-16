@@ -1,0 +1,45 @@
+{
+  "name": "EvilCatGrannysHouse",
+  "tree": {
+    "$className": "DataModel",
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "$path": "src/server"
+    },
+    "StarterPlayer": {
+      "$className": "StarterPlayer",
+      "StarterPlayerScripts": {
+        "$className": "StarterPlayerScripts",
+        "$path": "src/client"
+      }
+    },
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "Shared": {
+        "$path": "src/shared"
+      }
+    },
+    "StarterGui": {
+      "$className": "StarterGui",
+      "$path": "src/starter"
+    },
+    "ServerStorage": {
+      "$className": "ServerStorage"
+    },
+    "SoundService": {
+      "$className": "SoundService"
+    },
+    "Lighting": {
+      "$className": "Lighting",
+      "$properties": {
+        "Ambient": [0.1, 0.1, 0.12],
+        "Brightness": 0.5,
+        "ClockTime": 0,
+        "FogColor": [0.05, 0.05, 0.08],
+        "FogEnd": 200,
+        "FogStart": 50,
+        "GlobalShadows": true
+      }
+    }
+  }
+}

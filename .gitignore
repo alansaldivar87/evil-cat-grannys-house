@@ -1,0 +1,15 @@
+# Roblox place files (binary, large)
+*.rbxl
+*.rbxlx
+*.rbxl.lock
+
+# Aftman
+.aftman/
+
+# macOS
+.DS_Store
+
+# Editor
+*.swp
+*.swo
+*~
