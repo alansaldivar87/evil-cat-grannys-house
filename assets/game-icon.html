@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Evil Cat in Granny's House - Game Icon</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #1a1a2e;
+    font-family: Arial, sans-serif;
+    gap: 40px;
+    padding: 40px;
+  }
+  h2 { color: #aaa; margin-bottom: 10px; }
+  p { color: #666; margin-bottom: 20px; font-size: 14px; }
+
+  /* ============ GAME ICON (512x512) ============ */
+  .game-icon {
+    width: 512px;
+    height: 512px;
+    border-radius: 40px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, #0a0a1a 0%, #1a0a2a 40%, #2a1a3a 100%);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+  }
+
+  /* Moon */
+  .moon {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, #fffde8, #f0e68c, #daa520);
+    top: 30px;
+    right: 60px;
+    box-shadow: 0 0 60px rgba(255,253,200,0.4), 0 0 120px rgba(255,253,200,0.2);
+  }
+
+  /* Stars */
+  .star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 2s infinite alternate;
+  }
+  @keyframes twinkle { 0% { opacity: 0.3; } 100% { opacity: 1; } }
+
+  /* House silhouette */
+  .house {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .house-body {
+    width: 280px;
+    height: 180px;
+    background: linear-gradient(180deg, #0d0d15, #111122);
+    position: relative;
+    border: 2px solid #1a1a30;
+  }
+  .house-roof {
+    width: 0;
+    height: 0;
+    border-left: 160px solid transparent;
+    border-right: 160px solid transparent;
+    border-bottom: 100px solid #0d0d15;
+    position: relative;
+    left: -20px;
+    filter: drop-shadow(0 -2px 4px rgba(100,0,150,0.3));
+  }
+  .chimney {
+    position: absolute;
+    width: 30px;
+    height: 60px;
+    background: #0d0d15;
+    top: -50px;
+    right: 40px;
+  }
+
+  /* Windows with eerie glow */
+  .window {
+    position: absolute;
+    width: 50px;
+    height: 60px;
+    background: radial-gradient(ellipse, rgba(80,0,120,0.6), rgba(40,0,60,0.3));
+    border: 2px solid #2a1a3a;
+  }
+  .window.w1 { left: 30px; top: 30px; }
+  .window.w2 { right: 30px; top: 30px; }
+  .window.w3 { left: 30px; top: 110px; }
+  .window.w4 { right: 30px; top: 110px; }
+  .window::after {
+    content: '+';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #2a1a3a;
+    font-size: 40px;
+    font-weight: 100;
+  }
+
+  /* Door */
+  .door {
+    position: absolute;
+    width: 45px;
+    height: 80px;
+    background: linear-gradient(180deg, #1a0a20, #0a0a15);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 2px solid #2a1a3a;
+    border-bottom: none;
+    border-radius: 5px 5px 0 0;
+  }
+  .doorknob {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #daa520;
+    border-radius: 50%;
+    right: 8px;
+    top: 45px;
+    box-shadow: 0 0 8px rgba(218,165,32,0.5);
+  }
+
+  /* CAT - The star of the show */
+  .cat {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+  }
+  .cat-body {
+    width: 80px;
+    height: 50px;
+    background: radial-gradient(ellipse at 50% 60%, #1a1a1a, #000);
+    border-radius: 50% 50% 40% 40%;
+    position: relative;
+  }
+  .cat-head {
+    width: 55px;
+    height: 45px;
+    background: radial-gradient(ellipse at 50% 50%, #1a1a1a, #000);
+    border-radius: 50% 50% 45% 45%;
+    position: absolute;
+    top: -32px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  /* Ears */
+  .ear-left, .ear-right {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 22px solid #0a0a0a;
+    top: -16px;
+  }
+  .ear-left { left: 2px; transform: rotate(-10deg); }
+  .ear-right { right: 2px; transform: rotate(10deg); }
+  .ear-left::after, .ear-right::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 12px solid #2a1020;
+    top: 6px;
+    left: -6px;
+  }
+
+  /* Evil glowing eyes */
+  .eye {
+    position: absolute;
+    width: 14px;
+    height: 16px;
+    background: radial-gradient(ellipse, #ffff00, #ffcc00, #ff8800);
+    border-radius: 50%;
+    top: 12px;
+    box-shadow: 0 0 15px rgba(255,255,0,0.8), 0 0 30px rgba(255,200,0,0.4);
+    animation: glow 2s infinite alternate;
+  }
+  .eye.left { left: 10px; }
+  .eye.right { right: 10px; }
+  .eye::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 12px;
+    background: #000;
+    border-radius: 2px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  @keyframes glow {
+    0% { box-shadow: 0 0 15px rgba(255,255,0,0.8), 0 0 30px rgba(255,200,0,0.4); }
+    100% { box-shadow: 0 0 25px rgba(255,255,0,1), 0 0 50px rgba(255,200,0,0.6); }
+  }
+
+  /* Mouth with yellow teeth */
+  .mouth {
+    position: absolute;
+    bottom: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 10px;
+    border-bottom: 2px solid #333;
+    border-radius: 0 0 10px 10px;
+  }
+  .tooth {
+    position: absolute;
+    width: 4px;
+    height: 6px;
+    background: #daa520;
+    top: -4px;
+    border-radius: 0 0 2px 2px;
+  }
+  .tooth.t1 { left: 3px; }
+  .tooth.t2 { right: 3px; }
+  .tooth.t3 { left: 8px; height: 4px; }
+
+  /* Cat tail */
+  .tail {
+    position: absolute;
+    right: -25px;
+    top: 5px;
+    width: 40px;
+    height: 30px;
+    border: 4px solid #0a0a0a;
+    border-color: #0a0a0a transparent transparent transparent;
+    border-radius: 50%;
+    transform: rotate(-30deg);
+    animation: tailWag 3s infinite ease-in-out;
+  }
+  @keyframes tailWag {
+    0%, 100% { transform: rotate(-30deg); }
+    50% { transform: rotate(-10deg); }
+  }
+
+  /* Paws */
+  .paw {
+    position: absolute;
+    width: 16px;
+    height: 10px;
+    background: #0a0a0a;
+    border-radius: 50%;
+    bottom: -5px;
+  }
+  .paw.p1 { left: 5px; }
+  .paw.p2 { left: 22px; }
+  .paw.p3 { right: 22px; }
+  .paw.p4 { right: 5px; }
+
+  /* Title text */
+  .title-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    text-align: center;
+  }
+  .title-text {
+    font-family: 'Georgia', serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: #ff6600;
+    text-shadow: 0 0 10px rgba(255,100,0,0.5), 2px 2px 4px rgba(0,0,0,0.8);
+    letter-spacing: 1px;
+  }
+  .subtitle {
+    font-size: 13px;
+    color: #cc9900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 2px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+  }
+
+  /* Fog effect */
+  .fog {
+    position: absolute;
+    bottom: 70px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(transparent, rgba(100,80,120,0.15));
+  }
+
+  /* ============ GAME THUMBNAIL (1920x1080) ============ */
+  .game-thumbnail {
+    width: 960px;
+    height: 540px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2a 30%, #0d0d20 60%, #1a1030 100%);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+    border-radius: 12px;
+  }
+
+  .thumb-moon {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, #fffde8, #f0e68c, #daa520);
+    top: 30px;
+    right: 80px;
+    box-shadow: 0 0 40px rgba(255,253,200,0.3), 0 0 80px rgba(255,253,200,0.15);
+  }
+
+  /* Big title for thumbnail */
+  .thumb-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 20;
+  }
+  .thumb-title h1 {
+    font-family: 'Georgia', serif;
+    font-size: 52px;
+    font-weight: bold;
+    color: #ff6600;
+    text-shadow: 0 0 20px rgba(255,100,0,0.6), 0 4px 8px rgba(0,0,0,0.9), 0 0 40px rgba(255,50,0,0.3);
+    line-height: 1.1;
+    letter-spacing: 2px;
+  }
+  .thumb-title .evil { color: #ff2200; }
+  .thumb-title .grannys { color: #cc8800; font-size: 36px; }
+  .thumb-subtitle {
+    font-size: 18px;
+    color: #ffcc00;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+  }
+  .thumb-tagline {
+    font-size: 14px;
+    color: #aaa;
+    margin-top: 15px;
+    letter-spacing: 2px;
+  }
+
+  /* Cat eyes in thumbnail - large, menacing, in the dark */
+  .thumb-eyes {
+    position: absolute;
+    bottom: 100px;
+    left: 80px;
+    z-index: 15;
+  }
+  .thumb-eye {
+    display: inline-block;
+    width: 30px;
+    height: 35px;
+    background: radial-gradient(ellipse, #ffff00, #ffcc00, #ff8800);
+    border-radius: 50%;
+    margin: 0 15px;
+    box-shadow: 0 0 30px rgba(255,255,0,0.9), 0 0 60px rgba(255,200,0,0.5);
+    animation: glow 2s infinite alternate;
+    position: relative;
+  }
+  .thumb-eye::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 25px;
+    background: #000;
+    border-radius: 3px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Second pair of eyes - more cats lurking */
+  .thumb-eyes2 {
+    position: absolute;
+    top: 120px;
+    right: 120px;
+    z-index: 15;
+    opacity: 0.5;
+  }
+  .thumb-eye-sm {
+    display: inline-block;
+    width: 15px;
+    height: 18px;
+    background: radial-gradient(ellipse, #ffff00, #ff8800);
+    border-radius: 50%;
+    margin: 0 8px;
+    box-shadow: 0 0 15px rgba(255,255,0,0.6);
+    animation: glow 3s infinite alternate;
+    position: relative;
+  }
+  .thumb-eye-sm::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 12px;
+    background: #000;
+    border-radius: 2px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Scratch marks */
+  .scratch {
+    position: absolute;
+    font-size: 100px;
+    color: rgba(150,0,0,0.15);
+    font-family: serif;
+    transform: rotate(-20deg);
+  }
+  .scratch.s1 { bottom: 50px; right: 60px; }
+
+  /* Multiplayer badge */
+  .badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(255,50,0,0.9);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(255,50,0,0.4);
+    z-index: 20;
+  }
+
+  .instructions {
+    color: #888;
+    font-size: 13px;
+    text-align: center;
+    max-width: 600px;
+  }
+</style>
+</head>
+<body>
+
+<h2>Game Icon (512x512)</h2>
+<p>Right-click → Save Image As, or screenshot this for your Roblox game icon</p>
+
+<div class="game-icon">
+  <!-- Stars -->
+  <div class="star" style="top:20px;left:30px;animation-delay:0.3s"></div>
+  <div class="star" style="top:50px;left:180px;animation-delay:0.7s"></div>
+  <div class="star" style="top:15px;left:280px;animation-delay:1.1s"></div>
+  <div class="star" style="top:60px;left:400px;animation-delay:0.5s"></div>
+  <div class="star" style="top:35px;left:120px;animation-delay:1.5s;width:2px;height:2px"></div>
+  <div class="star" style="top:80px;left:350px;animation-delay:0.9s;width:2px;height:2px"></div>
+  <div class="star" style="top:45px;left:450px;animation-delay:1.3s"></div>
+
+  <!-- Moon -->
+  <div class="moon"></div>
+
+  <!-- House -->
+  <div class="house">
+    <div class="house-roof">
+      <div class="chimney"></div>
+    </div>
+    <div class="house-body">
+      <div class="window w1"></div>
+      <div class="window w2"></div>
+      <div class="window w3"></div>
+      <div class="window w4"></div>
+      <div class="door">
+        <div class="doorknob"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fog -->
+  <div class="fog"></div>
+
+  <!-- Cat -->
+  <div class="cat">
+    <div class="cat-head">
+      <div class="ear-left"></div>
+      <div class="ear-right"></div>
+      <div class="eye left"></div>
+      <div class="eye right"></div>
+      <div class="mouth">
+        <div class="tooth t1"></div>
+        <div class="tooth t2"></div>
+        <div class="tooth t3"></div>
+      </div>
+    </div>
+    <div class="cat-body">
+      <div class="tail"></div>
+      <div class="paw p1"></div>
+      <div class="paw p2"></div>
+      <div class="paw p3"></div>
+      <div class="paw p4"></div>
+    </div>
+  </div>
+
+  <!-- Title -->
+  <div class="title-container">
+    <div class="title-text">EVIL CAT</div>
+    <div class="subtitle">in Granny's House</div>
+  </div>
+</div>
+
+<br><br>
+
+<h2>Game Thumbnail (1920x1080)</h2>
+<p>Screenshot this for your Roblox game thumbnail</p>
+
+<div class="game-thumbnail">
+  <!-- Badge -->
+  <div class="badge">MULTIPLAYER • UP TO 10 PLAYERS</div>
+
+  <!-- Moon -->
+  <div class="thumb-moon"></div>
+
+  <!-- Stars -->
+  <div class="star" style="top:20px;left:50px"></div>
+  <div class="star" style="top:40px;left:200px;animation-delay:0.5s"></div>
+  <div class="star" style="top:30px;left:400px;animation-delay:1s"></div>
+  <div class="star" style="top:60px;left:600px;animation-delay:0.3s"></div>
+  <div class="star" style="top:15px;left:750px;animation-delay:0.8s"></div>
+
+  <!-- Cat eyes lurking -->
+  <div class="thumb-eyes">
+    <div class="thumb-eye"></div>
+    <div class="thumb-eye"></div>
+  </div>
+
+  <!-- More eyes in the distance -->
+  <div class="thumb-eyes2">
+    <div class="thumb-eye-sm"></div>
+    <div class="thumb-eye-sm"></div>
+  </div>
+
+  <!-- Title -->
+  <div class="thumb-title">
+    <h1><span class="evil">EVIL</span> CAT</h1>
+    <div class="grannys">in Granny's House</div>
+    <div class="thumb-subtitle">Can you survive the night?</div>
+    <div class="thumb-tagline">Horror • Adventure • Obby • Boss Fight</div>
+  </div>
+
+  <!-- Scratch marks -->
+  <div class="scratch s1">///</div>
+</div>
+
+<br>
+<div class="instructions">
+  <strong>How to use:</strong><br>
+  1. Take a screenshot of each image (Cmd+Shift+4 on Mac, drag over the image)<br>
+  2. In Roblox Studio: Game Settings → Basic Info → Game Icon (upload the 512x512)<br>
+  3. In Roblox Studio: Game Settings → Basic Info → Thumbnails (upload the wide one)<br>
+  4. Save Game Settings
+</div>
+
+</body>
+</html>

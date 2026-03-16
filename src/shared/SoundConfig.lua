@@ -27,28 +27,28 @@ local SoundConfig = {}
 -- ============================================================================
 SoundConfig.Music = {
 	Exploration = {
-		SoundId = "rbxassetid://0", -- Slow, eerie piano + ambient pads. Think music-box melody.
+		SoundId = "rbxassetid://209322206", -- Slow, eerie piano + ambient pads. Think music-box melody. (Scary/Creepy Music Box)
 		Volume = 0.25,
 		Looped = true,
 		PitchMin = 1.0,
 		PitchMax = 1.0,
 	},
 	Chase = {
-		SoundId = "rbxassetid://0", -- Fast, intense strings + percussion. Heart-pounding tempo.
+		SoundId = "rbxassetid://305024085", -- Fast, intense strings + percussion. Heart-pounding tempo. (Horror Chase Music)
 		Volume = 0.45,
 		Looped = true,
 		PitchMin = 1.0,
 		PitchMax = 1.0,
 	},
 	BossFight = {
-		SoundId = "rbxassetid://0", -- Epic orchestral / dramatic choir. High energy boss theme.
+		SoundId = "rbxassetid://5690623432", -- Epic orchestral / dramatic choir. High energy boss theme. (The Epic Boss Fight)
 		Volume = 0.5,
 		Looped = true,
 		PitchMin = 1.0,
 		PitchMax = 1.0,
 	},
 	Victory = {
-		SoundId = "rbxassetid://0", -- Triumphant fanfare, bright and uplifting.
+		SoundId = "rbxassetid://130774315", -- Triumphant fanfare, bright and uplifting. (Victory)
 		Volume = 0.6,
 		Looped = false,
 		PitchMin = 1.0,
@@ -65,7 +65,7 @@ SoundConfig.MusicCrossfadeDuration = 2.0
 -- ============================================================================
 SoundConfig.Cat = {
 	Growl = {
-		SoundId = "rbxassetid://0", -- Low, rumbling cat growl. Menacing tone.
+		SoundId = "rbxassetid://516484997", -- Low, rumbling cat growl. Menacing tone. (Cat Growl)
 		Volume = 0.7,
 		Looped = true,
 		PitchMin = 0.85,
@@ -74,7 +74,7 @@ SoundConfig.Cat = {
 		RollOffMaxDistance = 50,
 	},
 	Hiss = {
-		SoundId = "rbxassetid://0", -- Sharp, aggressive cat hiss.
+		SoundId = "rbxassetid://7128655475", -- Sharp, aggressive cat hiss. (Cat Hiss)
 		Volume = 0.9,
 		Looped = false,
 		PitchMin = 0.9,
@@ -83,7 +83,7 @@ SoundConfig.Cat = {
 		RollOffMaxDistance = 60,
 	},
 	Footstep = {
-		SoundId = "rbxassetid://0", -- Soft padded footstep, like paws on a hard floor.
+		SoundId = "rbxassetid://133705377", -- Soft padded footstep, like paws on a hard floor. (Carpet Footstep - soft/muffled)
 		Volume = 0.4,
 		Looped = false,
 		PitchMin = 0.8,
@@ -92,7 +92,7 @@ SoundConfig.Cat = {
 		RollOffMaxDistance = 30,
 	},
 	Attack = {
-		SoundId = "rbxassetid://0", -- Quick claw swipe / scratch sound.
+		SoundId = "rbxassetid://368169621", -- Quick claw swipe / scratch sound. (Scratch)
 		Volume = 0.85,
 		Looped = false,
 		PitchMin = 0.9,
@@ -101,7 +101,7 @@ SoundConfig.Cat = {
 		RollOffMaxDistance = 40,
 	},
 	BossRoar = {
-		SoundId = "rbxassetid://0", -- Massive, distorted roar. Reverb-heavy.
+		SoundId = "rbxassetid://2139510606", -- Massive, distorted roar. Reverb-heavy. (Monster Roar - Sound Effect)
 		Volume = 1.0,
 		Looped = false,
 		PitchMin = 0.7,
@@ -119,13 +119,13 @@ SoundConfig.Cat = {
 SoundConfig.RoomAmbience = {
 	Kitchen = {
 		Primary = {
-			SoundId = "rbxassetid://0", -- Dripping faucet, slow irregular drops.
+			SoundId = "rbxassetid://140854662", -- Dripping faucet, slow irregular drops. (Water Dripping)
 			Volume = 0.3,
 			PitchMin = 0.95,
 			PitchMax = 1.05,
 		},
 		Secondary = {
-			SoundId = "rbxassetid://0", -- Creaking pipes, metallic groaning.
+			SoundId = "rbxassetid://6011094380", -- Creaking pipes, metallic groaning. (Metal Pipe sound)
 			Volume = 0.2,
 			PitchMin = 0.9,
 			PitchMax = 1.0,
@@ -133,13 +133,13 @@ SoundConfig.RoomAmbience = {
 	},
 	Bedroom = {
 		Primary = {
-			SoundId = "rbxassetid://0", -- Wind howling outside the window.
+			SoundId = "rbxassetid://131104992", -- Wind howling outside the window. (Wind Howl)
 			Volume = 0.25,
 			PitchMin = 0.9,
 			PitchMax = 1.1,
 		},
 		Secondary = {
-			SoundId = "rbxassetid://0", -- Curtains rustling, soft fabric movement.
+			SoundId = "rbxassetid://5799870105", -- Curtains rustling, soft fabric movement. (Ambient Wind - soft)
 			Volume = 0.15,
 			PitchMin = 0.95,
 			PitchMax = 1.05,
@@ -147,13 +147,13 @@ SoundConfig.RoomAmbience = {
 	},
 	Basement = {
 		Primary = {
-			SoundId = "rbxassetid://0", -- Water dripping in a large echoey space.
+			SoundId = "rbxassetid://403292408", -- Water dripping in a large echoey space. (Water Drop Sound)
 			Volume = 0.3,
 			PitchMin = 0.8,
 			PitchMax = 1.0,
 		},
 		Secondary = {
-			SoundId = "rbxassetid://0", -- Distant low rumbling, like a furnace or underground tremor.
+			SoundId = "rbxassetid://1215389145", -- Distant low rumbling, like a furnace or underground tremor. (Low End Rumble Loop)
 			Volume = 0.2,
 			PitchMin = 0.7,
 			PitchMax = 0.9,
@@ -161,13 +161,13 @@ SoundConfig.RoomAmbience = {
 	},
 	Attic = {
 		Primary = {
-			SoundId = "rbxassetid://0", -- Wind whistling through cracks, high-pitched.
+			SoundId = "rbxassetid://3645269782", -- Wind whistling through cracks, high-pitched. (Wind Sound Effect)
 			Volume = 0.3,
 			PitchMin = 0.9,
 			PitchMax = 1.15,
 		},
 		Secondary = {
-			SoundId = "rbxassetid://0", -- Creaking wood beams + occasional bat flutter.
+			SoundId = "rbxassetid://1041586920", -- Creaking wood beams + occasional bat flutter. (Creaking Door Sound Effect)
 			Volume = 0.2,
 			PitchMin = 0.85,
 			PitchMax = 1.05,
@@ -175,13 +175,13 @@ SoundConfig.RoomAmbience = {
 	},
 	Bathroom = {
 		Primary = {
-			SoundId = "rbxassetid://0", -- Dripping water into porcelain basin, echo.
+			SoundId = "rbxassetid://4766793559", -- Dripping water into porcelain basin, echo. (Water sound effect)
 			Volume = 0.3,
 			PitchMin = 0.95,
 			PitchMax = 1.05,
 		},
 		Secondary = {
-			SoundId = "rbxassetid://0", -- Old mirror creaking on its frame, subtle glass rattle.
+			SoundId = "rbxassetid://148088329", -- Old mirror creaking on its frame, subtle glass rattle. (Door Creak)
 			Volume = 0.15,
 			PitchMin = 0.9,
 			PitchMax = 1.0,
@@ -189,13 +189,13 @@ SoundConfig.RoomAmbience = {
 	},
 	LivingRoom = {
 		Primary = {
-			SoundId = "rbxassetid://0", -- Old grandfather clock ticking, slow and deliberate.
+			SoundId = "rbxassetid://8966275754", -- Old grandfather clock ticking, slow and deliberate. (Clock Ticking Sound Effect)
 			Volume = 0.25,
 			PitchMin = 0.95,
 			PitchMax = 1.0,
 		},
 		Secondary = {
-			SoundId = "rbxassetid://0", -- Fireplace crackling, warm but slightly unsettling.
+			SoundId = "rbxassetid://4604808051", -- Fireplace crackling, warm but slightly unsettling. (Fire Crackling Sound Effect)
 			Volume = 0.2,
 			PitchMin = 0.9,
 			PitchMax = 1.1,
@@ -204,13 +204,13 @@ SoundConfig.RoomAmbience = {
 	-- Fallback for rooms with unrecognized RoomType or no attribute
 	Default = {
 		Primary = {
-			SoundId = "rbxassetid://0", -- Generic old house creaking ambience.
+			SoundId = "rbxassetid://9039981149", -- Generic old house creaking ambience. (Horror ambient)
 			Volume = 0.2,
 			PitchMin = 0.9,
 			PitchMax = 1.1,
 		},
 		Secondary = {
-			SoundId = "rbxassetid://0", -- Faint wind / draft sound.
+			SoundId = "rbxassetid://6455667685", -- Faint wind / draft sound. (Wind Sound Effect)
 			Volume = 0.1,
 			PitchMin = 0.95,
 			PitchMax = 1.05,
@@ -228,55 +228,55 @@ SoundConfig.RoomAmbienceCrossfadeDuration = 1.5
 SoundConfig.Footsteps = {
 	-- Enum.Material -> config
 	[Enum.Material.Wood] = {
-		SoundId = "rbxassetid://0", -- Creaky wooden floorboard.
+		SoundId = "rbxassetid://8454543187", -- Creaky wooden floorboard. (Wood Planks footstep)
 		Volume = 0.35,
 		PitchMin = 0.85,
 		PitchMax = 1.15,
 	},
 	[Enum.Material.WoodPlanks] = {
-		SoundId = "rbxassetid://0", -- Same as Wood, slightly different pitch.
+		SoundId = "rbxassetid://8454543187", -- Same as Wood, slightly different pitch. (Wood Planks footstep)
 		Volume = 0.35,
 		PitchMin = 0.8,
 		PitchMax = 1.1,
 	},
 	[Enum.Material.Fabric] = {
-		SoundId = "rbxassetid://0", -- Muffled carpet footstep.
+		SoundId = "rbxassetid://133705377", -- Muffled carpet footstep. (Carpet Footstep)
 		Volume = 0.2,
 		PitchMin = 0.9,
 		PitchMax = 1.1,
 	},
 	[Enum.Material.Marble] = {
-		SoundId = "rbxassetid://0", -- Hard tile clicking footstep.
+		SoundId = "rbxassetid://9083855231", -- Hard tile clicking footstep. (Footsteps - Marble)
 		Volume = 0.4,
 		PitchMin = 0.9,
 		PitchMax = 1.15,
 	},
 	[Enum.Material.Slate] = {
-		SoundId = "rbxassetid://0", -- Stone / tile step.
+		SoundId = "rbxassetid://833564121", -- Stone / tile step. (Concrete/Stone footstep)
 		Volume = 0.4,
 		PitchMin = 0.85,
 		PitchMax = 1.1,
 	},
 	[Enum.Material.Concrete] = {
-		SoundId = "rbxassetid://0", -- Hard concrete step, echoey.
+		SoundId = "rbxassetid://7046517109", -- Hard concrete step, echoey. (Concrete Footstep Sounds)
 		Volume = 0.35,
 		PitchMin = 0.9,
 		PitchMax = 1.1,
 	},
 	[Enum.Material.SmoothPlastic] = {
-		SoundId = "rbxassetid://0", -- Generic indoor footstep (default surface).
+		SoundId = "rbxassetid://131436155", -- Generic indoor footstep (default surface). (Footstep)
 		Volume = 0.3,
 		PitchMin = 0.9,
 		PitchMax = 1.1,
 	},
 	[Enum.Material.Metal] = {
-		SoundId = "rbxassetid://0", -- Metallic clang step, pipes / grates.
+		SoundId = "rbxassetid://9064974448", -- Metallic clang step, pipes / grates. (Metal footstep)
 		Volume = 0.4,
 		PitchMin = 0.8,
 		PitchMax = 1.15,
 	},
 	[Enum.Material.Grass] = {
-		SoundId = "rbxassetid://0", -- Soft rustling grass step.
+		SoundId = "rbxassetid://833564767", -- Soft rustling grass step. (Walking on grass sound effect)
 		Volume = 0.25,
 		PitchMin = 0.9,
 		PitchMax = 1.1,
@@ -285,7 +285,7 @@ SoundConfig.Footsteps = {
 
 -- Fallback footstep if material is not in the table above
 SoundConfig.FootstepDefault = {
-	SoundId = "rbxassetid://0", -- Generic indoor footstep.
+	SoundId = "rbxassetid://131436155", -- Generic indoor footstep. (Footstep)
 	Volume = 0.3,
 	PitchMin = 0.9,
 	PitchMax = 1.1,
@@ -302,42 +302,42 @@ SoundConfig.FootstepBaseInterval = 0.35
 SoundConfig.JumpScare = {
 	{
 		Name = "DistantMeow",
-		SoundId = "rbxassetid://0", -- Distant, echoing cat meow. Slightly distorted.
+		SoundId = "rbxassetid://6573099301", -- Distant, echoing cat meow. Slightly distorted. (OMORI Mewo/Cat Meow Sound Effect)
 		Volume = 0.35,
 		PitchMin = 0.7,
 		PitchMax = 1.0,
 	},
 	{
 		Name = "DoorCreak",
-		SoundId = "rbxassetid://0", -- Slow door creaking open by itself.
+		SoundId = "rbxassetid://1041586920", -- Slow door creaking open by itself. (Creaking Door Sound Effect)
 		Volume = 0.4,
 		PitchMin = 0.8,
 		PitchMax = 1.1,
 	},
 	{
 		Name = "GlassBreak",
-		SoundId = "rbxassetid://0", -- Distant glass shattering.
+		SoundId = "rbxassetid://5541851859", -- Distant glass shattering. (Glass Breaking sound)
 		Volume = 0.3,
 		PitchMin = 0.9,
 		PitchMax = 1.1,
 	},
 	{
 		Name = "Whispers",
-		SoundId = "rbxassetid://0", -- Unintelligible whispers, breathy and unsettling.
+		SoundId = "rbxassetid://313948389", -- Unintelligible whispers, breathy and unsettling. (Scary Whispers Sound Effect)
 		Volume = 0.2,
 		PitchMin = 0.8,
 		PitchMax = 1.0,
 	},
 	{
 		Name = "FloorboardCreak",
-		SoundId = "rbxassetid://0", -- Single loud floorboard creak, as if someone stepped nearby.
+		SoundId = "rbxassetid://148088329", -- Single loud floorboard creak, as if someone stepped nearby. (Door Creak - works for wood creak)
 		Volume = 0.4,
 		PitchMin = 0.85,
 		PitchMax = 1.15,
 	},
 	{
 		Name = "ChildLaugh",
-		SoundId = "rbxassetid://0", -- Faint, distant child's laugh. Very creepy.
+		SoundId = "rbxassetid://5167850250", -- Faint, distant child's laugh. Very creepy. (Creepy Child Laugh)
 		Volume = 0.15,
 		PitchMin = 0.75,
 		PitchMax = 0.95,
@@ -357,67 +357,67 @@ SoundConfig.JumpScareIntervalMax = 90
 -- ============================================================================
 SoundConfig.UI = {
 	CheckpointReached = {
-		SoundId = "rbxassetid://0", -- Satisfying chime / ding.
+		SoundId = "rbxassetid://7128958209", -- Satisfying chime / ding. (Bell Ding Sound Effect)
 		Volume = 0.6,
 		PitchMin = 1.0,
 		PitchMax = 1.0,
 	},
 	DeathSting = {
-		SoundId = "rbxassetid://0", -- Dramatic low stab sound + reverb. Like a horror movie sting.
+		SoundId = "rbxassetid://5775523429", -- Dramatic low stab sound + reverb. Like a horror movie sting. (Horror Stab Sound Effect)
 		Volume = 0.7,
 		PitchMin = 1.0,
 		PitchMax = 1.0,
 	},
 	KeyCollected = {
-		SoundId = "rbxassetid://0", -- Key jingle / metallic clink.
+		SoundId = "rbxassetid://3144041977", -- Key jingle / metallic clink. (Key pickup sound)
 		Volume = 0.5,
 		PitchMin = 0.95,
 		PitchMax = 1.05,
 	},
 	DoorOpen = {
-		SoundId = "rbxassetid://0", -- Heavy door opening creak.
+		SoundId = "rbxassetid://6814491848", -- Heavy door opening creak. (Door Open Sound)
 		Volume = 0.5,
 		PitchMin = 0.9,
 		PitchMax = 1.1,
 	},
 	DoorLocked = {
-		SoundId = "rbxassetid://0", -- Rattling locked door handle.
+		SoundId = "rbxassetid://6814495006", -- Rattling locked door handle. (Door Locked Sound)
 		Volume = 0.5,
 		PitchMin = 0.95,
 		PitchMax = 1.05,
 	},
 	TreatCollected = {
-		SoundId = "rbxassetid://0", -- Small positive pickup sound, sparkle-like.
+		SoundId = "rbxassetid://3292075199", -- Small positive pickup sound, sparkle-like. (Sparkle Noise - Sound Effect)
 		Volume = 0.4,
 		PitchMin = 0.95,
 		PitchMax = 1.1,
 	},
 	StoryNoteFound = {
-		SoundId = "rbxassetid://0", -- Paper rustling / page turning.
+		SoundId = "rbxassetid://7196414334", -- Paper rustling / page turning. (door opening/closing sound - light rustling)
 		Volume = 0.4,
 		PitchMin = 0.95,
 		PitchMax = 1.05,
 	},
 	HideEnter = {
-		SoundId = "rbxassetid://0", -- Quick shuffling / closet door closing.
+		SoundId = "rbxassetid://7792948465", -- Quick shuffling / closet door closing. (Door Opening Sound Effect)
 		Volume = 0.4,
 		PitchMin = 0.9,
 		PitchMax = 1.1,
 	},
 	HideExit = {
-		SoundId = "rbxassetid://0", -- Closet / cupboard opening.
+		SoundId = "rbxassetid://6058561902", -- Closet / cupboard opening. (Door Open)
 		Volume = 0.4,
 		PitchMin = 0.9,
 		PitchMax = 1.1,
 	},
 	FlashlightOn = {
-		SoundId = "rbxassetid://0", -- Flashlight click on.
+		SoundId = "rbxassetid://198914875", -- Flashlight click on. (Flashlight On)
 		Volume = 0.3,
 		PitchMin = 1.0,
 		PitchMax = 1.0,
 	},
 	FlashlightOff = {
-		SoundId = "rbxassetid://0", -- Flashlight click off.
+		SoundId = "rbxassetid://5991592592", -- Flashlight click off. (Flashlight Click)
 		Volume = 0.3,
 		PitchMin = 1.0,
 		PitchMax = 1.0,
